@@ -1,0 +1,6 @@
+en:
+  role:
+    name:
+      gsa: "Global System Admin"
+      archivist: "Archivist"
+      guest: "Guest"
