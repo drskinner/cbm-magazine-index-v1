@@ -6,9 +6,8 @@
 
   <fieldset class="register">
     <legend><%= I18n.t('user.fieldset.register') %></legend>
-    <%= f.input :first_name,
-                as: :string,
-                hint: I18n.t('activerecord.attributes.user.first_name_devise_hint') %>
+
+    <%= f.input :first_name, as: :string %>
     <%= f.input :last_name, as: :string %>
     <%= f.input :email,
                 required: true,

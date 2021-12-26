@@ -1,0 +1,5 @@
+en:
+  button:
+    user:
+      register: "Register"
+      sign_in: "Sign In"

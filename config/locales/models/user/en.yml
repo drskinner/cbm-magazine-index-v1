@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        email: "Email"
+        email_devise_hint: "Your email address will not be shown to other users."
+        first_name: "First Name"
+        last_name: "Last Name"
+        password_hint: "6 characters minimum."
+  user:
+    fieldset:
+      register: "Register for Access"
+    link:
+      registration_login: "Already a member? %{link} to your account."
