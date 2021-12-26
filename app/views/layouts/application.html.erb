@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <header>
+      <% if user_signed_in? %>
+        <div style="float: right;">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link' %>
+	</div>
+      <% end %>
+    </header>	    
     <%= yield %>
   </body>
 </html>
