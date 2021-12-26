@@ -14,11 +14,22 @@
   <body>
     <header>
       <% if user_signed_in? %>
-        <div style="float: right;">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link' %>
+        <div class="logout-link">
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'navbar-link' %>
 	</div>
       <% end %>
-    </header>	    
+    </header>
     <%= yield %>
+
+    <footer>
+      <%= tag.span do %>
+        CBM Magazine Index Copyright &copy; <%= Time.now.year %> Myles L. Skinner&mdash;All Rights Reserved.
+      <% end %>
+      <% unless user_signed_in? %>
+        <%= tag.span do %>
+          <%= link_to 'Admin Login', new_session_path('user'), class: 'navbar-link' %>
+	<% end %>
+      <% end %>
+    </footer>
   </body>
 </html>
