@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  devise_for :users, controllers: { registrations: 'users/registrations',
+                                    sessions: 'users/sessions' }
+
   resources :magazines do
     get :export, on: :member
   end
