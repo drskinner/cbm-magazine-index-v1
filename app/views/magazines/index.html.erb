@@ -1,2 +1,10 @@
-<h1>Fun little placeholder</h1>
-<%= @magazines.inspect %>
+<% content_for :title, I18n.t('page.action_title.index', model: 'Magazines') %>
+<div class="index-page">
+  <div>
+    <%= render 'index_table' %>
+  </div>
+
+  <div>
+    <%= render 'search' %>
+  </div>
+</div>

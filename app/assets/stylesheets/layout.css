@@ -1,14 +1,28 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
   font-family: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  padding: 0px 10px 0px 10px;    
 }
 
 .navbar-link:hover {
   color: red;
 }
 
+h1#page-title {
+  font-size: 2rem;
+}
+
 .logout-link {
   float: right;
-}    
+}
+
+.index-page {
+  display: grid;
+  grid-template-columns: auto 325px;
+}
 
 footer {
   background: #2e2c9b;
