@@ -10,7 +10,7 @@
 }
 
 .search-form fieldset legend {
-  background: linear-gradient(#6c5eb5, #5c4ea5);
+  background: linear-gradient(#2e2c9b, #1e1c8b);
   width: 100%;
   font-size: 1.75rem;
   padding: 5px 0px 5px 10px;
@@ -69,16 +69,16 @@ div.search-buttons {
   width: auto;
   margin: 5px 5px 10px 15px;
   padding: 6px 12px 6px 12px;  
-  background-color: #2e2c9b;
+  background-color: #5c4ea5;
   color: #f8f8f8;
-  border: solid 1px #363b3f;
+  border: solid 1px #4c3e95;
   border-radius: 3px;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.25s ease-in-out;
 }
 
 .search-form input.btn-default:hover {
-  background: #5c4ea5;
+  background: #6c5eb5;
 }
 
 .search-form a.btn-clear {
