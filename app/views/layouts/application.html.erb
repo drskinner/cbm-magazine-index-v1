@@ -19,6 +19,13 @@
 	</div>
       <% end %>
     </header>
+
+    <section id="title-bar">
+      <div id="title-content">
+        <h1 id="page-title"><%= yield(:title).present? ? yield(:title) : 'CBM Magazine Index' %></h1>
+      </div>
+    </section>
+
     <%= yield %>
 
     <footer>

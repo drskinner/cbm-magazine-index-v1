@@ -1,0 +1,32 @@
+<div id="index-table">
+  <!-- div class="pagination-info">
+    <%#= pagination_info(page: params[:page], page_count: @magazines.count, full_count: @full_count) %>
+  </div -->
+
+  <table class="index-table table-striped">
+    <tr class="magazine-index-row">
+      <%#= sortable 'name' %>
+      <%#= sortable 'owner_id' %>
+      <%#= sortable 'min_vnum' %>
+      <th>Name</th>
+      <th>Slug</th>
+      <th>Alpha Guide</th>
+      <th class="action"></th>
+      <%= tag.th class: 'action' if can? :update, Magazine %>
+      <%= tag.th class: 'action' if can? :export, Magazine %>
+      <%= tag.th class: 'action' if can? :destroy, Magazine %>
+    </tr>
+
+    <% @magazines.each do |magazine| %>
+      <tr class="magazine-index-row">
+        <td><%= magazine.name %></td>      
+        <td><%= magazine.slug %></td>      
+        <td><%= magazine.alpha_guide %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%#= paginate @magazines, theme: 'twitter-bootstrap-4',
+                       pagination_class: 'pagination-md',
+                       nav_class: 'd-inline-b' %>
+</div>
