@@ -12,6 +12,7 @@ class IssuesController < ApplicationController
 
     # @issues = @issues.order(sort => direction)
     #                  .page(params[:page])
+    @issues = @issues.page(params[:page])
   end
 
   def show
