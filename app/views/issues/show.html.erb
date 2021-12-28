@@ -1,2 +1,4 @@
 <% content_for :title, I18n.t('page.action_title.show', record: @issue.to_s) %>
+<%= link_to 'Create Issue', new_issue_path, class: 'navbar-link' %>
+
 <%= render 'form' %>

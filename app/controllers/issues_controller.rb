@@ -32,6 +32,20 @@ class IssuesController < ApplicationController
     end
   end
 
+  def edit
+    @issue = Issue.find(params[:id])
+  end
+
+  def update
+    @issue = Issue.find(params[:id])
+
+    if @issue.update(issue_params)
+      redirect_to @issue
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def issue_params
