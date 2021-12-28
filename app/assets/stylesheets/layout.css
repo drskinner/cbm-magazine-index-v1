@@ -7,9 +7,45 @@ body {
   padding: 0px 10px 0px 10px;    
 }
 
-.navbar-link:hover {
-  color: red;
+.alert-error, .alert-alert {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+  padding: 12px 20px 12px 20px;
 }
+
+.alert-notice {
+  background-color: #fcf8e3;
+  border-color: #faf2cc;
+  color: #8a6d3b;
+  padding: 12px 20px 12px 20px;  
+}
+
+#top-nav {
+  font-size: 150%;
+  color: #2e2c9b;
+  margin-bottom: 10px;
+}
+
+#top-nav .navbar-link {
+  color: #5c4ea5;
+  text-decoration: none;
+}
+
+#top-nav .navbar-link:hover {
+  color: #cc0000;
+}
+
+/* TODO: remove when actions helper is built */
+.navbar-link {
+  color: #5c4ea5;
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  color: #cc0000;
+}
+/* end remove me */
 
 h1#page-title {
   font-size: 2rem;

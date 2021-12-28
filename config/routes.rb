@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     sessions: 'users/sessions' }
 
+  resources :issues do
+    get :export, on: :member
+  end
+  
   resources :magazines do
     get :export, on: :member
   end

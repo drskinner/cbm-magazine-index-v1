@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    attributes:
+      issue:
+        magazine: "Magazine"
+        year: "Year"
+  issue:
+    fieldset:
+      metadata: "Issue Metadata"

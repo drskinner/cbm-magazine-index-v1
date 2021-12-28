@@ -1,0 +1,11 @@
+<% content_for :title, I18n.t('page.action_title.index', model: 'Issues') %>
+<%= link_to 'Create Issue', new_issue_path, class: 'navbar-link' %>
+<div class="index-page">
+  <div>
+    <%= render 'index_table' %>
+  </div>
+
+  <div>
+    <%= render 'search' %>
+  </div>
+</div>
