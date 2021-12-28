@@ -13,12 +13,18 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
+      <h1>CBM Magazine Index</h1>
+    </header>
+
+    <% if user_signed_in? %>
+      <nav id="top-nav">
+        <%= link_to 'Issues', issues_path, class: 'navbar-link' %>&nbsp;|
+        <%= link_to 'Magazines', magazines_path, class: 'navbar-link' %>
         <div class="logout-link">
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'navbar-link' %>
-	</div>
-      <% end %>
-    </header>
+        </div>
+      </nav>
+    <% end %>    
 
     <section id="title-bar">
       <div id="title-content">

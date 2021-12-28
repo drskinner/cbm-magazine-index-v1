@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_23_050818) do
+ActiveRecord::Schema.define(version: 2021_12_27_143056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "issues", force: :cascade do |t|
+    t.bigint "magazine_id", null: false
+    t.integer "year", null: false
+    t.integer "month"
+    t.integer "volume"
+    t.integer "number"
+    t.string "special"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["magazine_id"], name: "index_issues_on_magazine_id"
+  end
 
   create_table "magazines", force: :cascade do |t|
     t.string "slug", null: false
