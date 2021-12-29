@@ -1,7 +1,4 @@
 <div id="index-table">
-  <!-- div class="pagination-info">
-    <%#= pagination_info(page: params[:page], page_count: @issues.count, full_count: @full_count) %>
-  </div -->
 
   <table class="index-table table-striped">
     <tr class="issue-index-row">
@@ -11,7 +8,7 @@
       <th>Magazine</th>
       <th>Date</th>
       <th>Volume</th>
-      <th>Number</th>
+      <th>Issue Number</th>
       <th class="action"></th>
       <%= tag.th class: 'action' if can? :update, Issue %>
       <%#= tag.th class: 'action' if can? :export, Issue %>
@@ -22,8 +19,8 @@
       <tr class="issue-index-row">
         <td><%= issue.magazine %></td>
         <td><%= issue.date_display %></td>
-        <td><%= issue.volume %></td>
-        <td><%= issue.number %></td>
+        <td><%= "Vol. #{issue.volume}, No. #{issue.number}" unless issue.number.blank? %></td>
+        <td><%= issue.sequence %></td>
         <td class="action">
           <%= link_to svg('view'),
                       issue_path(issue),
@@ -40,7 +37,5 @@
     <% end %>
   </table>
 
-  <%#= paginate @issues, theme: 'twitter-bootstrap-4',
-                       pagination_class: 'pagination-md',
-                       nav_class: 'd-inline-b' %>
+  <%= paginate @issues %>
 </div>

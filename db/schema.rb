@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_12_27_143056) do
     t.integer "month"
     t.integer "volume"
     t.integer "number"
+    t.integer "sequence"
     t.string "special"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

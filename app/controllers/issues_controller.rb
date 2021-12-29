@@ -12,6 +12,7 @@ class IssuesController < ApplicationController
 
     # @issues = @issues.order(sort => direction)
     #                  .page(params[:page])
+    @issues = @issues.page(params[:page])
   end
 
   def show
@@ -53,6 +54,8 @@ class IssuesController < ApplicationController
                                   :year,
                                   :month,
                                   :volume,
-                                  :number)
+                                  :number,
+                                  :sequence,
+                                  :special)
   end
 end
