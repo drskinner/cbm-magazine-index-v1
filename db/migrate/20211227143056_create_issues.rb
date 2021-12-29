@@ -6,6 +6,7 @@ class CreateIssues < ActiveRecord::Migration[6.1]
       t.integer    :month
       t.integer    :volume
       t.integer    :number
+      t.integer    :sequence
       t.string     :special
 
       t.timestamps

@@ -54,6 +54,8 @@ class IssuesController < ApplicationController
                                   :year,
                                   :month,
                                   :volume,
-                                  :number)
+                                  :number,
+                                  :sequence,
+                                  :special)
   end
 end
