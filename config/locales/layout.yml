@@ -1,5 +1,6 @@
 en:
   index_table:
+    create: "Create"
     edit: "Edit"
     view: "View"
   messages:

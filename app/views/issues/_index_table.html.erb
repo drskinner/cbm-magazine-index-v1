@@ -1,7 +1,4 @@
 <div id="index-table">
-  <!-- div class="pagination-info">
-    <%#= pagination_info(page: params[:page], page_count: @issues.count, full_count: @full_count) %>
-  </div -->
 
   <table class="index-table table-striped">
     <tr class="issue-index-row">
@@ -40,7 +37,5 @@
     <% end %>
   </table>
 
-  <%#= paginate @issues, theme: 'twitter-bootstrap-4',
-                       pagination_class: 'pagination-md',
-                       nav_class: 'd-inline-b' %>
+  <%= paginate @issues %>
 </div>
