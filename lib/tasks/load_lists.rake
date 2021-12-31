@@ -66,7 +66,7 @@ namespace :lists do
       'input devices', 'display hardware', 'modems', 'printers', 'disk drives', 'datasettes',
       'graphics', 'sprites', 'fonts/charsets', 'PETSCII', 'text', 'multicolor', 'telecommunications',
       'publishing', 'hardware mods', 'repairs', 'hardware projects', 'sound', 'music', 'MIDI',
-      'SID', 'VIC-II', 'education', 'CMD', 'piracy', 'hi-res'
+      'SID', 'VIC-II', 'education', 'CMD', 'piracy', 'hi-res', 'memory'
     ].each do |t|
       print '.'
       unless Tag.find_by(name: t)
