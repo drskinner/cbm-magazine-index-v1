@@ -33,7 +33,7 @@
                         as: :select, 
                         collection: Tag.all,
                         required: false,
-                        input_html: { multiple: true },         
+                        input_html: { multiple: true, class: 'select2' },
                         prompt: I18n.t('select.magazine') %>
       <%= f.association :issue,
                         as: :select,
