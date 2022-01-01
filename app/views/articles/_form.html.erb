@@ -13,36 +13,45 @@
                   collection: Magazine.all,
                   required: true,
                   prompt: I18n.t('select.magazine') %>
+      <%= f.association :issue,
+                  as: :select,
+                  collection: Issue.all,
+                  required: true,
+                  prompt: I18n.t('select.issue') %>
+      <%= f.input :page, as: :integer %>
+      <%= f.input :blurb,
+                  as: :text,
+                  input_html: { rows: 4 },
+                  hint: "The magazine's internal description of the article." %>
+      <%= f.input :description,
+                  as: :text,
+                  input_html: { rows: 4 },
+                  hint: "Include useful keywords for searching." %>
+    </fieldset>
+    <fieldset>
+      <legend><%= I18n.t('article.fieldset.classifications') %></legend>
       <%= f.input :classification_id,
                   as: :select, 
                   collection: Classification.all,
+                  label: I18n.t('activerecord.attributes.article.classification'),
                   required: true,
-                  prompt: I18n.t('select.magazine') %>
+                  prompt: I18n.t('select.article_type') %>
       <%= f.input :language_id,
                   as: :select, 
                   collection: Language.all,
                   required: false,
-                  prompt: I18n.t('select.magazine') %>
+                  prompt: I18n.t('select.language') %>
       <%= f.association :machines,
                         as: :select, 
                         collection: Machine.all,
                         required: false,
-                        input_html: { multiple: true },
-                        prompt: I18n.t('select.magazine') %>
+                        input_html: { multiple: true, class: 'select2' } %>
       <%= f.association :tags,
                         as: :select, 
                         collection: Tag.all,
                         required: false,
                         input_html: { multiple: true, class: 'select2' },
-                        prompt: I18n.t('select.magazine') %>
-      <%= f.association :issue,
-                        as: :select,
-                        collection: Issue.all,
-                        required: true,
-                        prompt: I18n.t('select.year') %>
-      <%= f.input :page, as: :integer %>
-      <%= f.input :blurb, as: :text %>
-      <%= f.input :description, as: :text %>
+                        hint: 'Curated subject tags to aid advanced searching.' %>
     </fieldset>
   </div>
   

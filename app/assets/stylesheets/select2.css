@@ -49,8 +49,7 @@
     padding: 0;
     max-width: 100%;
     resize: none;
-    height: 18px;
-    vertical-align: bottom;
+    height: 24px;
     font-family: sans-serif;
     overflow: hidden;
     word-break: keep-all; }
@@ -222,7 +221,7 @@
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    vertical-align: bottom;
+    vertical-align: center;
     white-space: nowrap; }
   .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
     cursor: default;
@@ -238,7 +237,8 @@
     cursor: pointer;
     font-size: 1em;
     font-weight: bold;
-    padding: 0 4px;
+    height: 2rem;
+    padding: 0 4px 9px 4px;
     position: absolute;
     left: 0;
     top: 0; }

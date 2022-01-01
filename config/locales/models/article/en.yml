@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    attributes:
+      article:
+        author: "Author"
+        classification: "Article Type"
+        classification_id: "Article Type"
+        description: "Description"
+        issue: "Issue"
+        issue_id: "Issue"
+        title: "Title"
+  article:
+    fieldset:
+      classifications: "Article Classifications"
+      metadata: "Article Metadata"
+

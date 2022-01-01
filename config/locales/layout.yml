@@ -12,6 +12,9 @@ en:
       new: "Create %{model}"
       show: "View %{record}"
   select:
+    article_type: "-- Select Article Type --"
+    issue: "-- Select Issue --"
+    language: "-- Select Language --"
     magazine: "-- Select Magazine --"
     month: "-- Select Month --"
     year: "-- Select Year --"

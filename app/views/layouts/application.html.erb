@@ -19,6 +19,7 @@
 
     <% if user_signed_in? %>
       <nav id="top-nav">
+        <%= link_to 'Articles', articles_path, class: 'navbar-link' %>&nbsp;|
         <%= link_to 'Issues', issues_path, class: 'navbar-link' %>&nbsp;|
         <%= link_to 'Magazines', magazines_path, class: 'navbar-link' %>
         <div class="logout-link">
