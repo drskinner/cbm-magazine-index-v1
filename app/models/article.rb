@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
-
   include ActionView::Helpers::SanitizeHelper
-  
+  include Searchable
+
   belongs_to :classification
   belongs_to :issue
   belongs_to :language, optional: true
@@ -11,6 +11,9 @@ class Article < ApplicationRecord
   attr_accessor :magazine_id
   
   validates_presence_of :title, :author, :issue_id, :classification_id, :description
+
+  scope :by_magazine_id, ->(id) { joins(:issue).where(issue: { magazine_id: id }) }
+  scope :by_year, ->(year) { joins(:issue).where(issue: { year: year }) }
 
   def to_s
     title

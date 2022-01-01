@@ -5,10 +5,10 @@
       <%#= sortable 'name' %>
       <%#= sortable 'owner_id' %>
       <%#= sortable 'min_vnum' %>
-      <th>Magazine</th>
-      <th>Date</th>
-      <th>Volume</th>
-      <th>Article Number</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Issue</th>
+      <th>Page</th>
       <th class="action"></th>
       <%= tag.th class: 'action' if can? :update, Article %>
       <%#= tag.th class: 'action' if can? :export, Article %>
@@ -30,7 +30,8 @@
           <%= tag.td class: 'action' do %>
             <%= link_to svg('edit'),
                         edit_article_path(article),
-                        title: I18n.t('index_table.edit') %>
+                        title: I18n.t('index_table.edit'),
+                        'data-turbolinks' => 'false' %>
           <% end %>
         <% end %>
       </tr>

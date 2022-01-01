@@ -12,7 +12,9 @@
                   as: :select, 
                   collection: Magazine.all,
                   required: true,
+                  input_html: { onChange: "foo();" },
                   prompt: I18n.t('select.magazine') %>
+                  <div id="results"></div>
       <%= f.association :issue,
                   as: :select,
                   collection: Issue.all,
@@ -58,4 +60,6 @@
   <div>
     <%= f.button :submit unless action_name == 'show' %>
   </div>
+
+  <%= render partial: 'dynamic_issues', formats: [:js], locals: { f: f } %>
 <% end %>

@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
     direction = params[:direction] || :asc
 
     @articles = Article.accessible_by(current_ability)
-#                       .search(params.slice(:by_magazine_id, :by_year))
+                       .search(params.slice(:by_magazine_id, :by_year))
     @full_count = @articles.count
 
     # @articles = @articles.order(sort => direction)

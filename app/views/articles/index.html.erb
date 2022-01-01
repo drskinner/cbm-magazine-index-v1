@@ -1,6 +1,10 @@
 <% content_for :title do %>
   <%= I18n.t('page.action_title.index', model: 'Articles') %>
-  <%= link_to svg('new'), new_article_path, title: I18n.t('index_table.create'), class: 'icon' %>
+  <%= link_to svg('new'),
+      new_article_path,
+      title: I18n.t('index_table.create'),
+      class: 'icon',
+      'data-turbolinks' => 'false' %>
 <% end %>
   
 <div class="index-page">
