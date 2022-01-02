@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_27_143056) do
+ActiveRecord::Schema.define(version: 2021_12_31_061028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "author", null: false
+    t.integer "page"
+    t.bigint "issue_id", null: false
+    t.bigint "classification_id", null: false
+    t.bigint "language_id"
+    t.text "blurb"
+    t.text "description", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classification_id"], name: "index_articles_on_classification_id"
+    t.index ["issue_id"], name: "index_articles_on_issue_id"
+    t.index ["language_id"], name: "index_articles_on_language_id"
+  end
+
+  create_table "articles_machines", id: false, force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "machine_id", null: false
+    t.index ["article_id", "machine_id"], name: "index_articles_machines_on_article_id_and_machine_id"
+    t.index ["machine_id", "article_id"], name: "index_articles_machines_on_machine_id_and_article_id"
+  end
+
+  create_table "articles_tags", id: false, force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["article_id", "tag_id"], name: "index_articles_tags_on_article_id_and_tag_id"
+    t.index ["tag_id", "article_id"], name: "index_articles_tags_on_tag_id_and_article_id"
+  end
+
+  create_table "classifications", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "position", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "issues", force: :cascade do |t|
     t.bigint "magazine_id", null: false
@@ -28,19 +65,40 @@ ActiveRecord::Schema.define(version: 2021_12_27_143056) do
     t.index ["magazine_id"], name: "index_issues_on_magazine_id"
   end
 
+  create_table "languages", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "position", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "machines", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "position", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "magazines", force: :cascade do |t|
     t.string "slug", null: false
     t.string "name", null: false
     t.string "alpha_guide", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "roles", force: :cascade do |t|
     t.string "name", null: false
     t.integer "position", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "alpha_guide", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

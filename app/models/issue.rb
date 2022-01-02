@@ -2,6 +2,7 @@ class Issue < ApplicationRecord
   include Searchable
 
   belongs_to :magazine
+  has_many :articles
   
   validates_presence_of :year
 
@@ -15,7 +16,7 @@ class Issue < ApplicationRecord
   def date_display
     "#{month_display[0..2]} #{year}"
   end
-  
+
   def magazine_id_display
     magazine.to_s
   end
