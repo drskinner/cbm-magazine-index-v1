@@ -30,11 +30,11 @@ class Article < ApplicationRecord
   end
 
   def language_id_display
-    language.name
+    language&.name
   end
 
   def machine_ids_display
-    machines.pluck(:name).join(', ')
+    machines&.pluck(:name).join(', ')
   end
   
   def magazine_id_display
@@ -42,6 +42,6 @@ class Article < ApplicationRecord
   end
 
   def tag_ids_display
-    tags.pluck(:name).join(', ')
+    tags&.pluck(:name).join(', ')
   end
 end
