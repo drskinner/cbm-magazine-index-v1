@@ -50,7 +50,7 @@
                         input_html: { multiple: true, class: 'select2' } %>
       <%= f.association :tags,
                         as: :select, 
-                        collection: Tag.all,
+                        collection: Tag.collection,
                         required: false,
                         input_html: { multiple: true, class: 'select2' },
                         hint: 'Curated subject tags to aid advanced searching.' %>
