@@ -25,8 +25,11 @@ class Article < ApplicationRecord
   end
 
   def issue_id_display
-    sanitize (issue.date_display +
-        (" &ndash; Vol. #{issue.volume}, No. #{issue.number}" unless issue.number.blank?))
+    display_string = issue.date_display
+    unless issue.number.blank?
+      display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
+    end
+    sanitize (display_string)
   end
 
   def language_id_display
