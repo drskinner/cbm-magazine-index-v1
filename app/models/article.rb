@@ -24,12 +24,16 @@ class Article < ApplicationRecord
     classification.name
   end
 
+  def description_display
+    sanitize description
+  end
+
   def issue_id_display
     display_string = issue.date_display
     unless issue.number.blank?
       display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
     end
-    sanitize (display_string)
+    sanitize display_string
   end
 
   def language_id_display
