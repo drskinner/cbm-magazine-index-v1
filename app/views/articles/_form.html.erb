@@ -43,12 +43,12 @@
                   collection: Language.all,
                   required: false,
                   prompt: I18n.t('select.language') %>
-      <%= f.association :machines,
+      <%= f.input :machine_ids,
                         as: :select, 
                         collection: Machine.all,
                         required: false,
                         input_html: { multiple: true, class: 'select2' } %>
-      <%= f.association :tags,
+      <%= f.input :tag_ids,
                         as: :select, 
                         collection: Tag.collection,
                         required: false,

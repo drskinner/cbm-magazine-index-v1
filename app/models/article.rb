@@ -5,8 +5,6 @@ class Article < ApplicationRecord
   belongs_to :classification
   belongs_to :issue
   belongs_to :language, optional: true
-  has_and_belongs_to_many :machines
-  has_and_belongs_to_many :tags
 
   attr_accessor :magazine_id
   
@@ -17,6 +15,14 @@ class Article < ApplicationRecord
 
   def to_s
     title
+  end
+
+  def machine_ids=(machine_ids)
+    super(machine_ids.reject(&:blank?))
+  end
+
+  def tag_ids=(tag_ids)
+    super(tag_ids.reject(&:blank?))
   end
 
   # I realize these belong in a decorator... :)
@@ -41,7 +47,7 @@ class Article < ApplicationRecord
   end
 
   def machine_ids_display
-    machines&.pluck(:name).join(', ')
+    Machine.where(id: machine_ids).pluck(:name).join(', ')
   end
   
   def magazine_id_display
@@ -49,6 +55,6 @@ class Article < ApplicationRecord
   end
 
   def tag_ids_display
-    tags&.pluck(:name).join(', ')
+    Tag.where(id: tag_ids).pluck(:name).join(', ')
   end
 end
