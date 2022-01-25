@@ -9,7 +9,7 @@
       <%= f.input :title, as: :string %>
       <%= f.input :author, as: :string %>
       <%= f.input :magazine_id,
-                  as: :select, 
+                  as: :select,
                   collection: Magazine.all,
                   required: true,
                   input_html: { onChange: "foo();" },
@@ -33,27 +33,27 @@
     <fieldset>
       <legend><%= I18n.t('article.fieldset.classifications') %></legend>
       <%= f.input :classification_id,
-                  as: :select, 
+                  as: :select,
                   collection: Classification.all,
                   label: I18n.t('activerecord.attributes.article.classification'),
                   required: true,
                   prompt: I18n.t('select.article_type') %>
       <%= f.input :language_id,
-                  as: :select, 
+                  as: :select,
                   collection: Language.all,
                   required: false,
                   prompt: I18n.t('select.language') %>
-      <%= f.association :machines,
-                        as: :select, 
-                        collection: Machine.all,
-                        required: false,
-                        input_html: { multiple: true, class: 'select2' } %>
-      <%= f.association :tags,
-                        as: :select, 
-                        collection: Tag.collection,
-                        required: false,
-                        input_html: { multiple: true, class: 'select2' },
-                        hint: 'Curated subject tags to aid advanced searching.' %>
+      <%= f.input :machine_ids,
+                  as: :select,
+                  collection: Machine.all,
+                  required: false,
+                  input_html: { multiple: true, class: 'select2' } %>
+      <%= f.input :tag_ids,
+                  as: :select,
+                  collection: Tag.collection,
+                  required: false,
+                  input_html: { multiple: true, class: 'select2' },
+                  hint: 'Curated subject tags to aid advanced searching.' %>
     </fieldset>
   </div>
   
