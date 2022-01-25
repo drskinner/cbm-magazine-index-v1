@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require 'rake'
 
 namespace :issues do
@@ -12,6 +11,7 @@ namespace :issues do
     Rake::Task['issues:load_torpets'].invoke
     Rake::Task['issues:load_transactors'].invoke
     Rake::Task['issues:load_worlds'].invoke
+    Rake::Task['issues:load_infos'].invoke
 
     puts "Done."
   end
