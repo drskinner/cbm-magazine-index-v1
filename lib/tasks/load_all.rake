@@ -12,6 +12,7 @@ namespace :issues do
     Rake::Task['issues:load_transactors'].invoke
     Rake::Task['issues:load_worlds'].invoke
     Rake::Task['issues:load_infos'].invoke
+    Rake::Task['issues:load_geoworlds'].invoke
 
     puts "Done."
   end
