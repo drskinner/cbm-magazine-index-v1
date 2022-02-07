@@ -10,7 +10,7 @@ class Issue < ApplicationRecord
   scope :by_year, ->(year) { where(year: year) }
 
   def to_s
-    "#{magazine.to_s} #{month_display} #{year}"
+    "#{magazine.to_s} #{month_display} #{year} (#{sequence})"
   end
 
   def date_display
