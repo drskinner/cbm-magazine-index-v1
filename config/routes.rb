@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'public#welcome'
 
-  get 'welcome/index'
+  get 'public/welcome'
+  get 'public/search'
+  get 'public/status'
+  get 'public/about'
 
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     sessions: 'users/sessions' }

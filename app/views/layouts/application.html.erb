@@ -15,12 +15,16 @@
   <body>
     <header>
       <div class="header-left">
-      <%= link_to (user_signed_in? ? welcome_index_path : root_path) do %>
+      <%= link_to (user_signed_in? ? public_welcome_path : root_path) do %>
         <%= image_tag('cbmmag_logo.png', alt: 'CBM Magazine Index', class: 'cbm-logo') %>
       <% end %>
       </div>
       <div class="header-right">
-        <%= image_tag('cbmmag_title.png', alt: 'CBM Magazine Index', class: 'cbm-title') %>
+        <nav class="nav-menu" id="public-nav">
+          <a href="#">Search</a>|
+          <a href="#">Status</a>|
+          <a href="#">About</a>
+        </nav>
       </div>
     </header>
 
@@ -43,7 +47,9 @@
 
     <section id="title-bar">
       <div id="title-content">
-        <h1 id="page-title"><%= yield(:title).present? ? yield(:title) : 'CBM Magazine Index' %></h1>
+        <% if yield(:title).present? %>
+          <h1 id="page-title">CBM Magazine Index</h1>
+        <% end %>
       </div>
     </section>
 
