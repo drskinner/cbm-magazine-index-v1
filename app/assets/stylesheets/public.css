@@ -1,0 +1,20 @@
+section.status-table {
+  display: flex;
+  justify-content: center;
+}
+
+.status-table th {
+  padding: 0 5px 0 5px;
+}
+
+.numeric-cell {
+  text-align: center;
+  min-width: 7em;
+  padding: 5px;
+}
+
+.number-right-align {
+  text-align: right;
+  display: inline-block;
+  min-width: 2em;
+}
