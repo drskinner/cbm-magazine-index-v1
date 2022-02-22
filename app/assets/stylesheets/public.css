@@ -1,3 +1,8 @@
+section.status-table {
+  display: flex;
+  justify-content: center;
+}
+
 .status-table th {
   padding: 0 5px 0 5px;
 }

@@ -151,12 +151,6 @@ h1#page-title {
   grid-template-columns: auto 325px;
 }
 
-section.status-table {
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-}
-
 footer {
   background: #2e2c9b;
   color: white;

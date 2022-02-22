@@ -34,7 +34,7 @@
       <th>Articles</th>
     </tr>
     <% @magazines.each do |m| %>
-    <tr>
+      <tr>
         <td><%= m.name %></td>
         <td class="numeric-cell">
           <div class="number-right-align">
@@ -51,7 +51,7 @@
             <%= Article.joins(:issue).where(issue: { magazine_id: m.id })&.count %>
           </div>
         </td>
-    </tr>
+      </tr>
     <% end %>
   </table>
 </section>
