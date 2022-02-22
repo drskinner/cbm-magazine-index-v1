@@ -1,0 +1,57 @@
+<div class="public-page-title">
+  <%= image_tag('status.png', alt: 'Progress Report', class: 'page-title-png') %>
+</div>
+
+<style>
+.wrap {
+    text-align: right;
+    border: 2px dotted blue;
+    display: inline-block;
+    min-width: 2em;
+}
+.container {
+    border: 2px solid red;
+    text-align: center;
+    min-width: 7em;
+    padding: 5px;
+}
+</style>
+
+<section class="status-table">
+  <p>
+    <%= @article_count %> articles scanned across
+    <%= Issue.joins(:articles).uniq.count %> issues.
+    Heroku free dyno can hold ~9,000 articles
+    (<%= number_with_precision((@article_count / 90.0), precision: 2) %>% capacity).  
+  </p>
+</section>
+<section class="status-table">
+  <table>
+    <tr>
+      <th>Magazine</th>
+      <th>Issues Registered</th>
+      <th>Issues Scanned</th>
+      <th>Articles</th>
+    </tr>
+    <% @magazines.each do |m| %>
+    <tr>
+        <td><%= m.name %></td>
+        <td class="numeric-cell">
+          <div class="number-right-align">
+            <%= Issue.where(magazine_id: m.id)&.count %>
+          </div>
+        </td>
+        <td class="numeric-cell">
+          <div class="number-right-align">
+            <%= Issue.joins(:articles).where(magazine_id: m.id).uniq&.count %>
+          </div>
+        </td>
+        <td class="numeric-cell">
+          <div class="number-right-align">
+            <%= Article.joins(:issue).where(issue: { magazine_id: m.id })&.count %>
+          </div>
+        </td>
+    </tr>
+    <% end %>
+  </table>
+</section>

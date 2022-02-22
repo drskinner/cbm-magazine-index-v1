@@ -134,6 +134,14 @@ h1#page-title {
   font-size: 2rem;
 }
 
+.public-page-title {
+  text-align: center;
+}
+
+.page-title-png {
+  max-height: 72px;
+}
+
 .logout-link {
   float: right;
 }
@@ -141,6 +149,12 @@ h1#page-title {
 .index-page {
   display: grid;
   grid-template-columns: auto 325px;
+}
+
+section.status-table {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
 }
 
 footer {
