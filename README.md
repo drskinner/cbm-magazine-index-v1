@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+MicrogrammaDBolExt is a decent match for one of Commodore's signature fonts.

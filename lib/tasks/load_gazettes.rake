@@ -3,13 +3,18 @@
 require 'rake'
 
 def save_new_gazette!(month:, year:, volume: nil, number: nil, special: nil)
-  unless Issue.where(month: month, year: year).exists?
+  gazette_id = Magazine.find_by(slug: 'gazette').id
+  @issue_number += 1
+  print '.'
+
+  unless Issue.where(magazine_id: gazette_id, month: month, year: year).exists?    
     Issue.create!(
-      magazine_id: Magazine.find_by(slug: 'gazette').id,
+      magazine_id: gazette_id,
       year: year,
       month: month,
       volume: volume,
       number: number,
+      sequence: @issue_number,
       special: special
     )
   end
@@ -17,7 +22,6 @@ end
 
 def create_gazettes!(month:, year:, volume:, number:, issues:)
   for i in 0..(issues-1)
-    print '.'
     save_new_gazette!(month: month+i, year: year, volume: volume, number: number+i)
   end
 end
@@ -25,6 +29,7 @@ end
 namespace :issues do
   task load_gazettes: :environment do
     puts "Loading issues for Compute!'s Gazette..."
+    @issue_number = 0
 
     create_gazettes!(month: 7, year: 1983, volume: 1, number: 1, issues: 6)
     create_gazettes!(month: 1, year: 1984, volume: 2, number: 1, issues: 12)

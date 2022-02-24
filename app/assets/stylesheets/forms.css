@@ -7,7 +7,6 @@
   border: none;
   padding: 20px 0px 5px 0px;
   margin-bottom: 12px;
-  line-height: 2rem;
 }
 
 .input-form fieldset legend {
@@ -31,6 +30,10 @@
   width: 15%;
 }
 
+.input-form label.text {
+  vertical-align: top;
+}
+
 .input-form label.required abbr {
   color: #cc0000;
   border-bottom: none;
@@ -43,13 +46,18 @@
 }
 
 .input-form div.input {
-  margin: 8px 0 8px 0;
+  margin: 12px 0 12px 0;
 }
 
 .input-form input,
 .input-form select {
-  font-size: 1.25em;
+  font-size: 1.25rem;
+  height: 1.75rem;  
   margin: 0 0 0 12px;
+}
+
+.input-form input.string {
+  min-width: 75%;
 }
 
 .input-form div.show-input {
@@ -59,4 +67,19 @@
 
 .input-form div.validation-errors {
   margin: 0 2px 20px 2px;
+}
+
+.input-form span.select2,
+.input-form textarea {
+  margin-left: 12px;
+  min-width: 75%;
+}
+
+span.hint {
+  margin-left: 200px;
+  font-style: italic;
+}
+
+div.show span.hint {
+  display: block;
 }

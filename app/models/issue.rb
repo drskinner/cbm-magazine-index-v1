@@ -2,6 +2,7 @@ class Issue < ApplicationRecord
   include Searchable
 
   belongs_to :magazine
+  has_many :articles
   
   validates_presence_of :year
 
@@ -9,13 +10,13 @@ class Issue < ApplicationRecord
   scope :by_year, ->(year) { where(year: year) }
 
   def to_s
-    "#{magazine.to_s} #{month_display} #{year}"
+    "#{magazine.to_s} #{month_display} #{year} (#{sequence})"
   end
 
   def date_display
     "#{month_display[0..2]} #{year}"
   end
-  
+
   def magazine_id_display
     magazine.to_s
   end

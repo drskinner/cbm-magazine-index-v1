@@ -21,10 +21,93 @@ body {
   padding: 12px 20px 12px 20px;  
 }
 
+header {
+  display: grid;
+  grid-template-columns: 250px auto;
+  margin-bottom: 10px
+}
+
+.header-left {
+  text-align: center;
+}
+
+.cbm-logo {
+  max-height: 200px;
+  width: auto;
+}
+
+.header-right {
+  background-image: url('cbmmag_title.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 95% 70%;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 95%;
+}
+
+#public-nav {
+  font-size: 200%;
+  color: #000080;
+  margin: 20px 0 10px 0;
+}
+
+#public-nav a {
+  color: #5c4ea5;
+  text-decoration: none;
+  margin: 0 10px 0 10px;
+}
+
+#public-nav a:hover {
+  color: #cc0000;
+}
+
+.cbm-title {
+  width: 95%;
+  height: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bar-red {
+  height: 6px;
+  background-color: #ff0000;
+  margin: 3px 0 3px 0;
+}
+
+.bar-orange {
+  height: 6px;
+  background-color: #ff8c00;
+  margin: 3px 0 3px 0;
+}
+
+.bar-yellow {
+  height: 6px;
+  background-color: #ffd700;
+  margin: 3px 0 3px 0;
+}
+
+.bar-green {
+  height: 6px;
+  background-color: #228b22;
+  margin: 3px 0 3px 0;
+}
+
+.bar-blue {
+  height: 6px;
+  background-color: #00bfff;
+  margin: 3px 0 3px 0;
+}
+
 #top-nav {
   font-size: 150%;
   color: #2e2c9b;
-  margin-bottom: 10px;
+  margin: 20px 0 10px 0;
 }
 
 #top-nav .navbar-link {
@@ -51,6 +134,14 @@ h1#page-title {
   font-size: 2rem;
 }
 
+.public-page-title {
+  text-align: center;
+}
+
+.page-title-png {
+  max-height: 72px;
+}
+
 .logout-link {
   float: right;
 }
@@ -70,7 +161,20 @@ footer {
   -moz-osx-font-smoothing: grayscale;
 }
 
-footer a {
+.footer-login a:link, a:visited {
   color: white;
   float: right;
-}    
+}
+
+span.admin-login {
+  float: right;
+}
+
+a.icon {
+  color: #0000ee;
+}
+
+a.icon svg {
+  max-height: 24px;
+  fill: currentColor;
+}

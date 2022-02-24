@@ -8,16 +8,35 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
     <%= favicon_link_tag asset_path('favicon.ico') %>
   </head>
 
   <body>
     <header>
-      <h1>CBM Magazine Index</h1>
+      <div class="header-left">
+      <%= link_to (user_signed_in? ? public_welcome_path : root_path) do %>
+        <%= image_tag('cbmmag_logo.png', alt: 'CBM Magazine Index', class: 'cbm-logo') %>
+      <% end %>
+      </div>
+      <div class="header-right">
+        <nav class="nav-menu" id="public-nav">
+          <a href="#">Search</a>|
+          <%= link_to 'Status', public_status_path %>|
+          <%= link_to 'About', public_about_path %>
+        </nav>
+      </div>
     </header>
+
+    <div class="bar-red"></div>
+    <div class="bar-orange"></div>
+    <div class="bar-yellow"></div>
+    <div class="bar-green"></div>
+    <div class="bar-blue"></div>
 
     <% if user_signed_in? %>
       <nav id="top-nav">
+        <%= link_to 'Articles', articles_path, class: 'navbar-link' %>&nbsp;|
         <%= link_to 'Issues', issues_path, class: 'navbar-link' %>&nbsp;|
         <%= link_to 'Magazines', magazines_path, class: 'navbar-link' %>
         <div class="logout-link">
@@ -28,7 +47,9 @@
 
     <section id="title-bar">
       <div id="title-content">
-        <h1 id="page-title"><%= yield(:title).present? ? yield(:title) : 'CBM Magazine Index' %></h1>
+        <% if yield(:title).present? %>
+          <h1 id="page-title"><%= yield(:title) %></h1>
+        <% end %>
       </div>
     </section>
 
@@ -39,9 +60,9 @@
         CBM Magazine Index Copyright &copy; <%= Time.now.year %> Myles L. Skinner&mdash;All Rights Reserved.
       <% end %>
       <% unless user_signed_in? %>
-        <%= tag.span do %>
+        <span class="admin-login">
           <%= link_to 'Admin Login', new_session_path('user'), class: 'navbar-link' %>
-	<% end %>
+        </span>
       <% end %>
     </footer>
   </body>
