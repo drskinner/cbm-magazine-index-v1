@@ -1,0 +1,13 @@
+<div id="index-table">
+  <section class="results-table">
+    <% @articles.each do |article| %>
+      <div class="results-row">
+        <span><%= article.title_for_results %></span>
+        <span><%= article.issue_for_results %>, p. <%= article.page %></span>
+        <span><%= article.description_for_results %></span>
+      </div>
+    <% end %>
+
+    <%= paginate @articles, class: 'foo' %>
+  </section>
+</div>

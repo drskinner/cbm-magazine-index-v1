@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   include ActionView::Helpers::SanitizeHelper
+  include ActionView::Helpers::TextHelper
   include Searchable
 
   belongs_to :classification
@@ -56,5 +57,24 @@ class Article < ApplicationRecord
 
   def tag_ids_display
     Tag.where(id: tag_ids).pluck(:name).join(', ')
+  end
+
+  def description_for_results
+    result_string = description&.gsub!('<i>', '')&.gsub!('</i>', '')
+    truncate("#{blurb} #{result_string || description}",
+             length: 108,
+             omission: " ... #{description[-24, 24]}")
+  end
+
+  def issue_for_results
+    display_string = "<i>#{issue.magazine}</i> #{issue.date_display} (Issue #{issue.sequence})"
+    unless issue.number.blank?
+      display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
+    end
+    sanitize display_string
+  end
+
+  def title_for_results
+    sanitize "<a href=\"#\">#{truncate(title, length: 85)}</a> by #{truncate(author, length: 48)}"
   end
 end

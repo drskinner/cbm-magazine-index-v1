@@ -161,13 +161,20 @@ footer {
   -moz-osx-font-smoothing: grayscale;
 }
 
-footer a:link, a:visited {
+.footer-login a:link, a:visited {
   color: white;
   float: right;
-}    
+}
 
-.icon svg {
+span.admin-login {
+  float: right;
+}
+
+a.icon {
+  color: #0000ee;
+}
+
+a.icon svg {
   max-height: 24px;
   fill: currentColor;
 }
-

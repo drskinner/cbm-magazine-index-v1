@@ -48,7 +48,7 @@
     <section id="title-bar">
       <div id="title-content">
         <% if yield(:title).present? %>
-          <h1 id="page-title">CBM Magazine Index</h1>
+          <h1 id="page-title"><%= yield(:title) %></h1>
         <% end %>
       </div>
     </section>
@@ -60,9 +60,9 @@
         CBM Magazine Index Copyright &copy; <%= Time.now.year %> Myles L. Skinner&mdash;All Rights Reserved.
       <% end %>
       <% unless user_signed_in? %>
-        <%= tag.span do %>
+        <span class="admin-login">
           <%= link_to 'Admin Login', new_session_path('user'), class: 'navbar-link' %>
-        <% end %>
+        </span>
       <% end %>
     </footer>
   </body>
