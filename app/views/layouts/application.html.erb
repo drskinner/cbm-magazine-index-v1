@@ -60,7 +60,7 @@
         CBM Magazine Index Copyright &copy; <%= Time.now.year %> Myles L. Skinner&mdash;All Rights Reserved.
       <% end %>
       <% unless user_signed_in? %>
-        <span class="admin-login" style="float:right;">
+        <span class="admin-login">
           <%= link_to 'Admin Login', new_session_path('user'), class: 'navbar-link' %>
         </span>
       <% end %>

@@ -164,7 +164,11 @@ footer {
 .footer-login a:link, a:visited {
   color: white;
   float: right;
-}    
+}
+
+span.admin-login {
+  float: right;
+}
 
 a.icon {
   color: #0000ee;
