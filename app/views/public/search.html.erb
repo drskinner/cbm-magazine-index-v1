@@ -1,0 +1,19 @@
+<div class="public-page-title">
+  <%= image_tag('search.png', alt: 'About this project', class: 'page-title-png') %>
+</div>
+
+<div class="results-page">
+  <div></div>
+
+  <div class="results-pagination-info">
+    <%= pagination_info(page: params[:page], page_count: @articles.count, full_count: @full_count) %>
+  </div>
+
+  <div>
+    <%= render 'search_options' %>
+  </div>
+
+  <div>
+    <%= render 'results_table' %>
+  </div>
+</div>
