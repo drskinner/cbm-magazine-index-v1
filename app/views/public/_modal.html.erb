@@ -1,0 +1,23 @@
+<div id="public-modal" class="modal">
+  <div class="modal-container">
+    <span class="close">&times;</span>
+    <div id="modal-content">Content goes here...</div>
+  </div>
+</div>
+
+
+<script>
+let publicModal = document.getElementById("public-modal");
+let closeSpan = document.getElementsByClassName("close")[0];
+
+closeSpan.onclick = function() {
+  publicModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it.
+window.onclick = function(event) {
+  if (event.target == publicModal) {
+    publicModal.style.display = "none";
+  }
+}
+</script>

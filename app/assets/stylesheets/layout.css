@@ -161,13 +161,12 @@ footer {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.footer-login a:link, a:visited {
-  color: white;
+span.admin-login {
   float: right;
 }
 
-span.admin-login {
-  float: right;
+span.admin-login a {
+  color: white;
 }
 
 a.icon {

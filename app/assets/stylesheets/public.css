@@ -58,6 +58,15 @@ section.status-table {
   margin-right: 24px;
 }
 
+.results-row p {
+  margin: 0;
+}
+
 .results-row span {
-  display: block;
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.results-row span:hover {
+  color: #cc0000;
 }
