@@ -21,7 +21,8 @@
       </div>
       <div class="header-right">
         <nav class="nav-menu" id="public-nav">
-          <a href="#">Search</a>|
+          <%= link_to 'Home', public_welcome_path %>|
+          <%= link_to 'Search', public_search_path %>|
           <%= link_to 'Status', public_status_path %>|
           <%= link_to 'About', public_about_path %>
         </nav>
