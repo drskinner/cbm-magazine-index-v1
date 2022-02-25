@@ -62,11 +62,6 @@ section.status-table {
   margin: 0;
 }
 
-.results-row span {
-  color: #0000ee;
-  text-decoration: underline;
-}
-
-.results-row span:hover {
-  color: #cc0000;
+.results-row a:hover {
+  color: #ee0000;
 }

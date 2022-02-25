@@ -24,7 +24,7 @@ class PublicController < ApplicationController
   def article
     @article = Article.find(params[:id])
     respond_to do |format|
-      format.js {render layout: false}
+      format.js { render layout: false }
     end
   end
 end
