@@ -59,6 +59,10 @@ class Article < ApplicationRecord
     Tag.where(id: tag_ids).pluck(:name).join(', ')
   end
 
+  def author_for_results
+    truncate(author, length: 48)
+  end
+
   def description_for_results
     result_string = description&.gsub!('<i>', '')&.gsub!('</i>', '')
     truncate("#{blurb} #{result_string || description}",
@@ -75,6 +79,6 @@ class Article < ApplicationRecord
   end
 
   def title_for_results
-    sanitize "<a href=\"#\">#{truncate(title, length: 85)}</a> by #{truncate(author, length: 48)}"
+    truncate(title, length: 85)
   end
 end

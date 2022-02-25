@@ -20,4 +20,11 @@ class PublicController < ApplicationController
     #                  .page(params[:page])
     @articles = @articles.page(params[:page])
   end
+
+  def article
+    @article = Article.find(params[:id])
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
 end

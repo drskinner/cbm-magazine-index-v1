@@ -58,6 +58,10 @@ section.status-table {
   margin-right: 24px;
 }
 
-.results-row span {
-  display: block;
+.results-row p {
+  margin: 0;
+}
+
+.results-row a:hover {
+  color: #ee0000;
 }

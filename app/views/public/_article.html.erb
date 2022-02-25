@@ -1,0 +1,12 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.author %></p>
+<p><%= @article.issue_for_results %>, p. <%= @article.page %></p>
+<% unless @article.machine_ids_display.blank? %>
+  <p><b>Machine(s):</b> <%= @article.machine_ids_display %></p>
+<% end %>
+<% unless @article.language_id_display.blank? %>
+  <p><b>Language:</b> <%= @article.language_id_display %></p>
+<% end %>
+<p><i><%= @article.blurb %></i></p>
+<p><%= raw @article.description %></p>
+<p><b>Tags:</b> <%= @article.tag_ids_display %></p>
