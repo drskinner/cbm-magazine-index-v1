@@ -13,7 +13,16 @@ class PublicController < ApplicationController
     direction = params[:direction] || :asc
 
     @articles = Article.accessible_by(current_ability)
-                       .search(params.slice(:by_magazine_id, :by_year))
+                       .search(params.slice(:author_contains,
+                                            :by_article_type,
+                                            :by_language,
+                                            :by_magazine,
+                                            :by_year,
+                                            :for_machines,
+                                            :has_all_tags,
+                                            :has_text
+                                           )
+                              )
     @full_count = @articles.count
 
     # @articles = @articles.order(sort => direction)
@@ -24,6 +33,7 @@ class PublicController < ApplicationController
   def article
     @article = Article.find(params[:id])
     respond_to do |format|
+      format.html { render layout: true }
       format.js { render layout: false }
     end
   end

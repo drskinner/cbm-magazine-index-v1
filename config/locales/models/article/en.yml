@@ -8,6 +8,9 @@ en:
         description: "Description"
         issue: "Issue"
         issue_id: "Issue"
+        magazine_id: "Magazine"
+        machine_ids: "Machines"
+        tag_ids: "Tags"
         title: "Title"
   article:
     fieldset:
