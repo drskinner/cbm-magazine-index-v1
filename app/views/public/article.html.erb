@@ -1,0 +1,5 @@
+<% content_for :title do %>
+  <%= I18n.t('page.action_title.show', record: @article.to_s) %>
+<% end %>
+
+<%= render 'article' %>
