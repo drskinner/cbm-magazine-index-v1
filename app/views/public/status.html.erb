@@ -19,7 +19,7 @@
 
 <section class="status-table">
   <p>
-    <%= @article_count %> articles scanned across
+    <%= @article_count %> articles catalogued across
     <%= Issue.joins(:articles).uniq.count %> issues.
     Heroku free dyno can hold ~9,000 articles
     (<%= number_with_precision((@article_count / 90.0), precision: 2) %>% capacity).  
@@ -30,8 +30,8 @@
     <tr>
       <th>Magazine</th>
       <th>Issues Registered</th>
-      <th>Issues Scanned</th>
-      <th>Articles</th>
+      <th>Issues Read</th>
+      <th>Articles Catalogued</th>
     </tr>
     <% @magazines.each do |m| %>
       <tr>
