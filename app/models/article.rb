@@ -41,6 +41,8 @@ class Article < ApplicationRecord
   end
 
   def issue_id_display
+    return issue.special unless issue.special.blank?
+
     display_string = "#{issue.date_display} (#{issue.sequence})"
     unless issue.number.blank?
       display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
@@ -76,10 +78,15 @@ class Article < ApplicationRecord
   end
 
   def issue_for_results
-    display_string = "<i>#{issue.magazine}</i> #{issue.date_display} (Issue #{issue.sequence})"
-    unless issue.number.blank?
-      display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
+    if issue.special.present?
+      display_string = "<i>#{issue.magazine}</i> #{issue.date_display} (#{issue.special})"
+    else
+      display_string = "<i>#{issue.magazine}</i> #{issue.date_display} (Issue #{issue.sequence})"
+      unless issue.number.blank?
+        display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
+      end
     end
+
     sanitize display_string
   end
 
