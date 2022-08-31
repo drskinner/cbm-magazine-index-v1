@@ -31,6 +31,14 @@ section.status-table {
   margin: 0 100px 0 100px;
 }
 
+.sample-search-links {
+  display: flex;
+}
+
+.sample-search-column {
+  flex: 50%;
+}
+
 .results-page {
   display: grid;
   grid-template-columns: 325px auto;

@@ -3,40 +3,67 @@
 </div>
 
 <section class="wall-of-text">
-<p>The main search is still a work in progress. Consider this page a prototype. :)</p>
-<p>You can try a few search options in the form below or try one of these searches to get started:</p>
-<ul>
-  <li>
-    <%= link_to 'Articles by Jim Butterfield',
-          public_search_path(author_contains: 'butterfield'),
-          data: { turbolinks: false } %>
-  </li>
-  <li>
-    <%= link_to 'Articles about COMAL',
-          public_search_path(by_language: Language.find_by(name: 'COMAL').id),
-          data: { turbolinks: false } %>
-  </li>
-  <li>
-    <%= link_to 'Type-ins with machine-language source code',
-          public_search_path(by_article_type: Classification.find_by(name: 'Type-In').id,
-                             by_language: Language.find_by(name: 'ML').id,
-                             'has_all_tags[]': "#{Tag.find_by(name: 'source code').id}"),
-          data: { turbolinks: false } %>
-  </li>
-  <li>
-    <%= link_to 'Game reviews from 1988',
-          public_search_path(by_article_type: Classification.find_by(name: 'Review - Software').id,
-                             by_year: 1988,
-                             'has_all_tags[]': "#{Tag.find_by(name: 'games').id}"),
-          data: { turbolinks: false } %>
-  </li>
-  <li>
-  <%= link_to 'News about Commodore\'s bankruptcy',
-        public_search_path('has_all_tags[]': "#{Tag.find_by(name: 'bankruptcy').id}"),
-        data: { turbolinks: false } %>
-  </li>
-</ul>
+  <p>The main search is still a work in progress. Consider this page a prototype. :)</p>
+  <p>You can try a few search options in the form below or try one of these searches to get started:</p>
+</section>
 
+<section class="wall-of-text sample-search-links">
+  <div class="sample-search-column">
+    <ul>
+      <li>
+        <%= link_to 'Articles by Jim Butterfield',
+              public_search_path(author_contains: 'butterfield'),
+              data: { turbolinks: false } %>
+      </li>
+      <li>
+        <%= link_to 'Articles about COMAL',
+              public_search_path(by_language: Language.find_by(name: 'COMAL').id),
+              data: { turbolinks: false } %>
+      </li>
+      <li>
+        <%= link_to 'Interviews',
+              public_search_path('has_all_tags[]': "#{Tag.find_by(name: 'interviews').id}"),
+              data: { turbolinks: false } %>
+      </li>
+      <li>
+        <%= link_to 'Type-ins with machine-language source code',
+              public_search_path(by_article_type: Classification.find_by(name: 'Type-In').id,
+                                 by_language: Language.find_by(name: 'ML').id,
+                                'has_all_tags[]': "#{Tag.find_by(name: 'source code').id}"),
+              data: { turbolinks: false } %>
+      </li>
+    </ul>
+  </div>
+  <div class="sample-search-column">
+    <ul>
+      <li>
+        <%= link_to 'Game reviews from 1988',
+              public_search_path(by_article_type: Classification.find_by(name: 'Review - Software').id,
+                                 by_year: 1988,
+                                'has_all_tags[]': "#{Tag.find_by(name: 'games').id}"),
+              data: { turbolinks: false } %>
+      </li>
+      <li>
+        <%= link_to 'News about Commodore\'s bankruptcy',
+              public_search_path('has_all_tags[]': "#{Tag.find_by(name: 'bankruptcy').id}"),
+              data: { turbolinks: false } %>
+      </li>
+      <li>
+        <%= link_to 'Articles that mention Q-Link',
+              public_search_path(has_text: 'q-link'),
+              data: { turbolinks: false } %>
+      </li>
+      <li>
+        <%= link_to 'Reviews of hardware from Creative Micro Designs (CMD)',
+              public_search_path(by_article_type: Classification.find_by(name: 'Review - Hardware').id,
+                                'has_all_tags[]': "#{Tag.find_by(name: 'CMD').id}"),
+              data: { turbolinks: false } %>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="wall-of-text">
 <%= form_tag public_search_path, method: 'get', class: 'input-form welcome-form' do %>
   <fieldset class="welcome">
     <legend>Search</legend>
