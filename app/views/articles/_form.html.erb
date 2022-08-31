@@ -10,7 +10,7 @@
       <%= f.input :author, as: :string %>
       <%= f.input :magazine_id,
                   as: :select,
-                  collection: Magazine.all,
+                  collection: Magazine.collection,
                   required: true,
                   input_html: { onChange: "foo();" },
                   prompt: I18n.t('select.magazine') %>
