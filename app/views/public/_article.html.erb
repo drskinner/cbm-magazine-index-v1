@@ -1,13 +1,25 @@
-<h1><%= @article.title %></h1>
-<p><%= @article.author %></p>
-<p><%= @article.issue_for_results %>, p. <%= @article.page %></p>
-<p><b>Type:</b> <%= @article.classification_id_display %></p>
-<% unless @article.machine_ids_display.blank? %>
-  <p><b>Machine(s):</b> <%= @article.machine_ids_display %></p>
-<% end %>
-<% unless @article.language_id_display.blank? %>
-  <p><b>Language:</b> <%= @article.language_id_display %></p>
-<% end %>
-<p><i><%= @article.blurb %></i></p>
-<p><%= raw @article.description %></p>
-<p><b>Tags:</b> <%= @article.tag_ids_display %></p>
+<div class="article-left">
+  <%= image_tag cover_image_url(@article.issue), class: 'cover-image' %>
+  <ul style="list-style-type: none; padding: 0;">
+    <li><a href="#">View on archive.org</a></li>
+    <li>&nbsp;</li>
+    <li><a href="#">About this issue</a></li>
+  </ul>
+</div>
+
+<div class="article-right">
+  <h1><%= @article.title %></h1>
+  <p><%= @article.author %></p>
+  <p><%= @article.issue_for_results %>, p. <%= @article.page %></p>
+  <p><b>Type:</b> <%= @article.classification_id_display %></p>
+  <% unless @article.machine_ids_display.blank? %>
+    <p><b>Machine(s):</b> <%= @article.machine_ids_display %></p>
+  <% end %>
+  <% unless @article.language_id_display.blank? %>
+    <p><b>Language:</b> <%= @article.language_id_display %></p>
+  <% end %>
+  <p><i><%= @article.blurb %></i></p>
+  <p><%= raw @article.description %></p>
+  <p><b>Tags:</b> <%= @article.tag_ids_display %></p>
+</div>
+
