@@ -4,7 +4,7 @@ class PublicController < ApplicationController
   def welcome; end
 
   def status
-    @magazines = Magazine.all
+    @magazines = Magazine.all.order(alpha_guide: :asc)
     @article_count = Article.count
   end
 

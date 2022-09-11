@@ -38,3 +38,5 @@ yarn-debug.log*
 # Ignore local-specific files
 *~
 latest.dump
+.DS_Store
+

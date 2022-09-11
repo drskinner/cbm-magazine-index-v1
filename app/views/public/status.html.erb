@@ -32,6 +32,7 @@
       <th>Issues Registered</th>
       <th>Issues Read</th>
       <th>Articles Catalogued</th>
+      <th>% Complete</th>
     </tr>
     <% @magazines.each do |m| %>
       <tr>
@@ -49,6 +50,11 @@
         <td class="numeric-cell">
           <div class="number-right-align">
             <%= Article.joins(:issue).where(issue: { magazine_id: m.id })&.count %>
+          </div>
+        </td>
+        <td class="numeric-cell">
+          <div class="number-right-align">
+            <%= '%.2f' % ((Issue.joins(:articles).where(magazine_id: m.id).uniq&.count.to_f / Issue.where(magazine_id: m.id)&.count.to_f) * 100) unless Issue.where(magazine_id: m.id)&.count.zero? %>
           </div>
         </td>
       </tr>
