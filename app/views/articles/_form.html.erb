@@ -32,6 +32,9 @@
     </fieldset>
     <fieldset>
       <legend><%= I18n.t('article.fieldset.classifications') %></legend>
+      <%= f.input :regular_feature,
+                  as: :radio_buttons,
+                  label: I18n.t('activerecord.attributes.article.regular_feature') %>
       <%= f.input :classification_id,
                   as: :select,
                   collection: Classification.all,
