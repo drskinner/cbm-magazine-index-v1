@@ -58,6 +58,7 @@ class ArticlesController < ApplicationController
             :issue_id,
             :language_id,
             :page,
+            :regular_feature,
             :title,
             machine_ids: [],
             tag_ids: []
