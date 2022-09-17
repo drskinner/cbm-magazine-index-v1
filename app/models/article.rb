@@ -9,7 +9,7 @@ class Article < ApplicationRecord
 
   attr_accessor :magazine_id
   
-  validates_presence_of :title, :author, :issue_id, :classification_id, :description
+  validates_presence_of :title, :author, :issue_id, :page, :classification_id, :description
 
   scope :author_contains, ->(name) { where('author ILIKE ?', "%#{name}%") }
   scope :by_article_type, ->(id) { where(classification_id: id) }
