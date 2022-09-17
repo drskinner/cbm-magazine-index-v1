@@ -20,7 +20,7 @@
                   collection: Issue.all,
                   required: true,
                   prompt: I18n.t('select.issue') %>
-      <%= f.input :page, as: :integer %>
+      <%= f.input :page, as: :integer, required: true %>
       <%= f.input :blurb,
                   as: :text,
                   input_html: { rows: 4 },
