@@ -1,9 +1,21 @@
 <div class="article-left">
   <%= image_tag cover_image_url(@article.issue), class: 'cover-image' %>
   <ul style="list-style-type: none; padding: 0;">
-    <li><a href="#">View on archive.org</a></li>
+    <li><a href="#">About this issue</a><br>(Coming Soon)</li>
     <li>&nbsp;</li>
-    <li><a href="#">About this issue</a></li>
+    <li><b>Archive.org Links:</b></i>
+    <li>
+      <%= link_to 'View article', archive_view_link(@article.issue, @article.page), target: '_blank' %>
+    </li>
+    <li>
+      <%= link_to 'Download issue', archive_download_link(@article.issue), target: '_blank' %>
+    </li>
+    <li>
+      <%= link_to 'OCR full text', archive_ocr_link(@article.issue), target: '_blank' %>
+    </li>
+    <li>
+      <%= link_to 'Single-page JP2s', archive_jpeg_link(@article.issue), target: '_blank' %>
+    </li>
   </ul>
 </div>
 
