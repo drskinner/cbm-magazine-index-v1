@@ -15,7 +15,7 @@ module IssueHelper
   end
 
   def article_page(page, issue)
-    "page/n#{page + issue.page_offset}/mode/2-up"
+    "page/#{page + issue.archive_page_offset}/mode/2-up"
   end
 
   def archive_download_link(issue)
