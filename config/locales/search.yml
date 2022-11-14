@@ -5,6 +5,7 @@ en:
     by_language: "Language"
     by_magazine: "Magazine"
     by_magazine_id: "Magazine"
+    by_sequence: "By Sequence/Issue No."
     by_year: "Publication Year"
     has_all_tags: "Tagged with (AND Search)"
     has_text: "Contains String"

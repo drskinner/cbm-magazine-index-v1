@@ -17,14 +17,14 @@ section.status-table {
 
 .numeric-cell {
   text-align: center;
-  min-width: 7em;
+  min-width: 8em;
   padding: 5px;
 }
 
 .number-right-align {
   text-align: right;
   display: inline-block;
-  min-width: 2.5em;
+  min-width: 3.5em;
 }
 
 .wall-of-text {

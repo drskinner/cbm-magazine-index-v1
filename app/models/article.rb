@@ -14,6 +14,7 @@ class Article < ApplicationRecord
   scope :author_contains, ->(name) { where('author ILIKE ?', "%#{name}%") }
   scope :by_article_type, ->(id) { where(classification_id: id) }
   scope :by_language, ->(id) { where(language_id: id) }
+  scope :by_sequence, ->(sequence) { joins(:issue).where(issue: { sequence: sequence }) }
   scope :by_magazine, ->(id) { joins(:issue).where(issue: { magazine_id: id }) }
   scope :by_year, ->(year) { joins(:issue).where(issue: { year: year }) }
   scope :for_machines, ->(ids) { where('machine_ids && ARRAY[?]', ids.map(&:to_i)) }
