@@ -14,8 +14,8 @@ module IssueHelper
     "#{issue.year}/#{my_slug}-#{'%02i' % my_sequence}-#{issue.year}#{'%02i' % issue.month}"
   end
 
-  def article_page(page, issue)
-    "page/#{page + issue.archive_page_offset}/mode/2-up"
+  def article_page(page)
+    "page/#{page}/mode/2-up"
   end
 
   def archive_download_link(issue)
@@ -30,8 +30,12 @@ module IssueHelper
     "https://archive.org/stream/#{archive_base_url(issue)}/#{archive_slug(issue)}_djvu.txt"
   end
 
-  def archive_view_link(issue, page)
-    "https://archive.org/details/#{archive_base_url(issue)}/#{archive_slug(issue)}/#{article_page(page, issue)}?view=theater"
+  def archive_view_issue_link(issue)
+    "https://archive.org/details/#{archive_base_url(issue)}/#{archive_slug(issue)}?view=theater"
+  end
+
+  def archive_view_article_link(issue, page)
+    "https://archive.org/details/#{archive_base_url(issue)}/#{archive_slug(issue)}/#{article_page(page)}?view=theater"
   end
 
   def cover_image_url(issue)

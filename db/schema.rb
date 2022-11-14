@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_13_050252) do
+ActiveRecord::Schema.define(version: 2022_11_14_002436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2022_11_13_050252) do
     t.integer "tag_ids", default: [], array: true
     t.integer "machine_ids", default: [], array: true
     t.boolean "regular_feature", default: false, null: false
+    t.string "archive_page"
     t.index ["classification_id"], name: "index_articles_on_classification_id"
     t.index ["issue_id"], name: "index_articles_on_issue_id"
     t.index ["language_id"], name: "index_articles_on_language_id"

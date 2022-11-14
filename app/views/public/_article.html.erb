@@ -5,7 +5,11 @@
     <li>&nbsp;</li>
     <li><b>Archive.org Links:</b></i>
     <li>
-      <%= link_to 'View article', archive_view_link(@article.issue, @article.page), target: '_blank' %>
+      <% if @article.archive_page %>
+        <%= link_to 'View article', archive_view_article_link(@article.issue, @article.archive_page), target: '_blank' %>
+      <% else %>
+        <%= link_to 'View issue', archive_view_issue_link(@article.issue), target: '_blank' %>
+      <% end %>      
     </li>
     <li>
       <%= link_to 'Download issue', archive_download_link(@article.issue), target: '_blank' %>
