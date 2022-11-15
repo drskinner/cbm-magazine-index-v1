@@ -9,9 +9,9 @@ module IssueHelper
   def archive_slug(issue)
     # useless local variables for readability:
     my_slug = issue.magazine.slug
-    my_sequence = issue.special_slug || issue.sequence
+    my_sequence = issue.special_slug || ('%02i' % issue.sequence)
 
-    "#{issue.year}/#{my_slug}-#{'%02i' % my_sequence}-#{issue.year}#{'%02i' % issue.month}"
+    "#{issue.year}/#{my_slug}-#{my_sequence}-#{issue.year}#{'%02i' % issue.month}"
   end
 
   def article_page(page)
