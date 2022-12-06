@@ -28,7 +28,7 @@ end
 
 namespace :issues do
   task load_cbms: :environment do
-    puts "Loading issues for Commodore Microcomputer..."
+    puts "Loading issues for Commodore Magazine..."
     @issue_number = 0
 
     create_cbms!(month: 1, year: 1987, volume:  8, number: 1, issues: 12)
