@@ -6,9 +6,11 @@ namespace :issues do
     puts "Loading all issues..."
 
     Rake::Task['issues:load_ahoys'].invoke
-    Rake::Task['issues:load_power_plays'].invoke    
+    Rake::Task['issues:load_power_plays'].invoke
+    Rake::Task['issues:load_cbm_micros'].invoke
+    Rake::Task['issues:load_cbms'].invoke
     Rake::Task['issues:load_diehards'].invoke
-    Rake::Task['issues:load_gazette_disks'].invoke    
+    Rake::Task['issues:load_gazette_disks'].invoke
     Rake::Task['issues:load_gazette_sections'].invoke
     Rake::Task['issues:load_gazettes'].invoke
     Rake::Task['issues:load_geoworlds'].invoke

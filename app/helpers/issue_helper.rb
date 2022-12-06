@@ -10,8 +10,9 @@ module IssueHelper
     # useless local variables for readability:
     my_slug = issue.magazine.slug
     my_sequence = issue.special_slug || ('%02i' % issue.sequence)
+    my_month = issue.month.blank? ? '' : ('%02i' % issue.month)
 
-    "#{issue.year}/#{my_slug}-#{my_sequence}-#{issue.year}#{'%02i' % issue.month}"
+    "#{issue.year}/#{my_slug}-#{my_sequence}-#{issue.year}#{my_month}"
   end
 
   def article_page(page)
