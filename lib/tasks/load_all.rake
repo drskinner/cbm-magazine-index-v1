@@ -20,6 +20,9 @@ namespace :issues do
     Rake::Task['issues:load_tpugs'].invoke
     Rake::Task['issues:load_transactors'].invoke
     Rake::Task['issues:load_worlds'].invoke
+    Rake::Task['issues:load_commanders'].invoke
+    Rake::Task['issues:load_computes'].invoke
+    Rake::Task['issues:load_compute_iis'].invoke
 
     puts "Done."
   end
