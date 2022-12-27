@@ -37,7 +37,7 @@ module IssueHelper
   end
 
   def archive_view_article_link(issue, page)
-    "https://archive.org/details/#{archive_base_url(issue)}/#{archive_slug(issue)}/#{article_page(page)}?view=theater"
+    "https://archive.org/details/#{archive_base_url(issue)}/#{archive_slug(issue)}/#{article_page(page)}"
   end
 
   def cover_image_url(issue)
