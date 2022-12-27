@@ -1,9 +1,10 @@
 module IssueHelper
   def archive_base_url(issue)
-    # useless local variable for readability:
+    # useless local variables for readability:
     my_slug = issue.magazine.slug
+    my_suffix = issue.magazine.archive_suffix.to_s
 
-    "cbm_magazine_index-#{my_slug}/#{my_slug}"
+    "cbm_magazine_index-#{my_slug}#{my_suffix}/#{my_slug}"
   end
 
   def archive_slug(issue)
