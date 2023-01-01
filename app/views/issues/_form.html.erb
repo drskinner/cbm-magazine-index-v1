@@ -13,7 +13,7 @@
                         prompt: I18n.t('select.magazine') %>
       <%= f.input :year,
                   as: :select,
-                  collection: 1983..1999,
+                  collection: Rails.configuration.first_year..Rails.configuration.last_year,
                   required: true,
                   prompt: I18n.t('select.year') %>
       <%= f.input :month,

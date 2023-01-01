@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_24_045209) do
+ActiveRecord::Schema.define(version: 2022_12_26_232040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2022_01_24_045209) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "tag_ids", default: [], array: true
     t.integer "machine_ids", default: [], array: true
+    t.boolean "regular_feature", default: false, null: false
+    t.string "archive_page"
     t.index ["classification_id"], name: "index_articles_on_classification_id"
     t.index ["issue_id"], name: "index_articles_on_issue_id"
     t.index ["language_id"], name: "index_articles_on_language_id"
@@ -64,6 +66,8 @@ ActiveRecord::Schema.define(version: 2022_01_24_045209) do
     t.string "special"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "special_slug"
+    t.integer "archive_page_offset", default: 0, null: false
     t.index ["magazine_id"], name: "index_issues_on_magazine_id"
   end
 
@@ -87,6 +91,7 @@ ActiveRecord::Schema.define(version: 2022_01_24_045209) do
     t.string "alpha_guide", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "archive_suffix"
   end
 
   create_table "roles", force: :cascade do |t|

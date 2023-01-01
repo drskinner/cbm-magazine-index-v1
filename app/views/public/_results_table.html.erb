@@ -2,12 +2,16 @@
   <section class="results-table">
     <% @articles.each do |article| %>
       <div class="results-row">
-        <span><%= article.title_for_results %></span>
-        <span><%= article.issue_for_results %>, p. <%= article.page %></span>
-        <span><%= article.description_for_results %></span>
+        <p>
+          <%= link_to article.title_for_results, "/public/article/#{article.id}", remote: true %>
+          &ndash;
+          <%= article.author_for_results %>
+        </p>
+        <p><%= article.issue_for_results %>, p. <%= article.page %></p>
+        <p><%= article.description_for_results %></p>
       </div>
     <% end %>
 
-    <%= paginate @articles, class: 'foo' %>
+    <%= paginate @articles %>
   </section>
 </div>

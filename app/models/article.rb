@@ -9,11 +9,17 @@ class Article < ApplicationRecord
 
   attr_accessor :magazine_id
   
-  validates_presence_of :title, :author, :issue_id, :classification_id, :description
+  validates_presence_of :title, :author, :issue_id, :page, :classification_id, :description
 
-  scope :by_magazine_id, ->(id) { joins(:issue).where(issue: { magazine_id: id }) }
+  scope :author_contains, ->(name) { where('author ILIKE ?', "%#{name}%") }
+  scope :by_article_type, ->(id) { where(classification_id: id) }
+  scope :by_language, ->(id) { where(language_id: id) }
+  scope :by_sequence, ->(sequence) { joins(:issue).where(issue: { sequence: sequence }) }
+  scope :by_magazine, ->(id) { joins(:issue).where(issue: { magazine_id: id }) }
   scope :by_year, ->(year) { joins(:issue).where(issue: { year: year }) }
-
+  scope :for_machines, ->(ids) { where('machine_ids && ARRAY[?]', ids.map(&:to_i)) }
+  scope :has_all_tags, ->(ids) { where('tag_ids @> ARRAY[?]', ids.map(&:to_i)) }
+  scope :has_text, ->(text) { where('description ILIKE ? OR blurb ILIKE ? OR title ILIKE ?', "%#{text}%", "%#{text}%", "%#{text}%") }
   def to_s
     title
   end
@@ -36,6 +42,8 @@ class Article < ApplicationRecord
   end
 
   def issue_id_display
+    return issue.special unless issue.special.blank?
+
     display_string = "#{issue.date_display} (#{issue.sequence})"
     unless issue.number.blank?
       display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
@@ -59,6 +67,10 @@ class Article < ApplicationRecord
     Tag.where(id: tag_ids).pluck(:name).join(', ')
   end
 
+  def author_for_results
+    truncate(author, length: 48)
+  end
+
   def description_for_results
     result_string = description&.gsub!('<i>', '')&.gsub!('</i>', '')
     truncate("#{blurb} #{result_string || description}",
@@ -67,14 +79,19 @@ class Article < ApplicationRecord
   end
 
   def issue_for_results
-    display_string = "<i>#{issue.magazine}</i> #{issue.date_display} (Issue #{issue.sequence})"
-    unless issue.number.blank?
-      display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
+    if issue.special.present?
+      display_string = "<i>#{issue.magazine}</i> #{issue.date_display} (#{issue.special})"
+    else
+      display_string = "<i>#{issue.magazine}</i> #{issue.date_display} (Issue #{issue.sequence})"
+      unless issue.number.blank?
+        display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
+      end
     end
+
     sanitize display_string
   end
 
   def title_for_results
-    sanitize "<a href=\"#\">#{truncate(title, length: 85)}</a> by #{truncate(author, length: 48)}"
+    truncate(title, length: 85)
   end
 end

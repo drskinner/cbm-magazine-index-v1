@@ -19,10 +19,10 @@
 
 <section class="status-table">
   <p>
-    <%= @article_count %> articles scanned across
+    <%= @article_count %> articles catalogued across
     <%= Issue.joins(:articles).uniq.count %> issues.
-    Heroku free dyno can hold ~9,000 articles
-    (<%= number_with_precision((@article_count / 90.0), precision: 2) %>% capacity).  
+    (<%= overall_percent_complete %>% of <%= Issue.all.count %> registered
+     issues completed for Phase One.)
   </p>
 </section>
 <section class="status-table">
@@ -30,25 +30,31 @@
     <tr>
       <th>Magazine</th>
       <th>Issues Registered</th>
-      <th>Issues Scanned</th>
-      <th>Articles</th>
+      <th>Issues Read</th>
+      <th>Articles Catalogued</th>
+      <th>% Complete</th>
     </tr>
-    <% @magazines.each do |m| %>
+    <% @magazines.each do |magazine| %>
       <tr>
-        <td class="magazine-name"><%= m.name %></td>
+        <td class="magazine-name"><%= magazine.name %></td>
         <td class="numeric-cell">
           <div class="number-right-align">
-            <%= Issue.where(magazine_id: m.id)&.count %>
+            <%= issues_registered(magazine) %>
           </div>
         </td>
         <td class="numeric-cell">
           <div class="number-right-align">
-            <%= Issue.joins(:articles).where(magazine_id: m.id).uniq&.count %>
+            <%= issues_read(magazine) %>
           </div>
         </td>
         <td class="numeric-cell">
           <div class="number-right-align">
-            <%= Article.joins(:issue).where(issue: { magazine_id: m.id })&.count %>
+            <%= articles_catalogued(magazine) %>
+          </div>
+        </td>
+        <td class="numeric-cell">
+          <div class="number-right-align">
+            <%= percent_complete(magazine) %>
           </div>
         </td>
       </tr>

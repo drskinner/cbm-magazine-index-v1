@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'public/status'
   get 'public/about'
 
+  get 'public/article/:id', to: 'public#article'
+
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     sessions: 'users/sessions' }
 

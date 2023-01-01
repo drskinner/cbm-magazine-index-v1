@@ -22,5 +22,8 @@ module CbmMagazineIndex
 
     # Configure I18n to load from all subdirectories under config/locales:
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{rb,yml}').to_s]
+
+    config.first_year = 1979
+    config.last_year  = 1999
   end
 end

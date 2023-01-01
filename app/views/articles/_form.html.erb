@@ -5,12 +5,12 @@
 
   <div class="input-fields">
     <fieldset>
-      <legend><%= I18n.t('issue.fieldset.metadata') %></legend>
+      <legend><%= I18n.t('article.fieldset.metadata') %></legend>
       <%= f.input :title, as: :string %>
       <%= f.input :author, as: :string %>
       <%= f.input :magazine_id,
                   as: :select,
-                  collection: Magazine.all,
+                  collection: Magazine.collection,
                   required: true,
                   input_html: { onChange: "foo();" },
                   prompt: I18n.t('select.magazine') %>
@@ -20,7 +20,8 @@
                   collection: Issue.all,
                   required: true,
                   prompt: I18n.t('select.issue') %>
-      <%= f.input :page, as: :integer %>
+      <%= f.input :page, as: :integer, required: true %>
+      <%= f.input :archive_page, as: :string, required: false %>
       <%= f.input :blurb,
                   as: :text,
                   input_html: { rows: 4 },
@@ -32,6 +33,9 @@
     </fieldset>
     <fieldset>
       <legend><%= I18n.t('article.fieldset.classifications') %></legend>
+      <%= f.input :regular_feature,
+                  as: :radio_buttons,
+                  label: I18n.t('activerecord.attributes.article.regular_feature') %>
       <%= f.input :classification_id,
                   as: :select,
                   collection: Classification.all,
@@ -40,7 +44,7 @@
                   prompt: I18n.t('select.article_type') %>
       <%= f.input :language_id,
                   as: :select,
-                  collection: Language.all,
+                  collection: Language.collection,
                   required: false,
                   prompt: I18n.t('select.language') %>
       <%= f.input :machine_ids,
