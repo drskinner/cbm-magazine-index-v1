@@ -16,8 +16,11 @@ module Api
           ) AS month_name,
           i.year,
           i.sequence,
+          i.issue,
+          i.volume,
           m.name AS magazine_name,
-          m.slug AS magazine_slug
+          m.slug AS magazine_slug,
+          m.archive_suffix
         FROM
           articles a
         INNER JOIN
