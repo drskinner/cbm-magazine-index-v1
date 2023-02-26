@@ -16,7 +16,7 @@ module Api
           ) AS month_name,
           i.year,
           i.sequence,
-          i.issue,
+          i.number,
           i.volume,
           m.name AS magazine_name,
           m.slug AS magazine_slug,
