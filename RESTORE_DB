@@ -1,6 +1,6 @@
 heroku pg:backups:capture --app cbm-magazine-index
 rm latest.dump
-heroku pg:backups:download
+heroku pg:backups:download -a cbm-magazine-index
 rails db:environment:set RAILS_ENV=development
 rails db:drop
 rails db:create
