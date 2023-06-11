@@ -79,16 +79,7 @@ class Article < ApplicationRecord
   end
 
   def issue_for_results
-    if issue.special.present?
-      display_string = "<i>#{issue.magazine}</i> #{issue.date_display} (#{issue.special})"
-    else
-      display_string = "<i>#{issue.magazine}</i> #{issue.date_display} (Issue #{issue.sequence})"
-      unless issue.number.blank?
-        display_string += " &ndash; Vol. #{issue&.volume}, No. #{issue&.number}"
-      end
-    end
-
-    sanitize display_string
+    sanitize "<i>#{issue.magazine}</i> #{issue.friendly_name}"
   end
 
   def title_for_results
