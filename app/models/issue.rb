@@ -30,4 +30,17 @@ class Issue < ApplicationRecord
     Date::MONTHNAMES.each_with_index { |m, i| collection << [m, i] unless m.nil? }
     collection
   end
+
+  def friendly_name
+    return special if special.present?
+
+    I18n.t(
+      "issue.friendly_name.#{magazine.slug}",
+      volume: volume,
+      number: number,
+      sequence: sequence,
+      month_name: month.present? ? Date::MONTHNAMES[month] : '',
+      year: year
+    ).squeeze(' ')
+  end
 end
