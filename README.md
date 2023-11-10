@@ -23,4 +23,6 @@ Things you may want to cover:
 
 * ...
 
+* PROFIT!
+
 MicrogrammaDBolExt is a decent match for one of Commodore's signature fonts.
